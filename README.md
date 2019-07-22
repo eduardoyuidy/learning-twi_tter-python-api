@@ -3,7 +3,7 @@ Twitter API - Python Flask
 
 ### Installation
 
-Dillinger requires [Python](https://www.python.org/) to run.
+The Twitter API Requires [Python](https://www.python.org/) to run.
 
 Create a new directory and clone this repository. 
 
