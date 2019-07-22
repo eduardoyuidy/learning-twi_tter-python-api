@@ -1,7 +1,8 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///storage.db'
+db = SQLAlchemy(app)
 
-@app.route('/')
-def default():
-    return "Hello World!"
+from app.controllers import default
