@@ -1,4 +1,5 @@
-from flask import render_template
+from flask_wtf import FlaskForm
+from flask import render_template, request
 from app import app
 
 from app.models.forms import LoginForm
@@ -15,8 +16,18 @@ def login():
 
     # print(str(form.validate_on_submit()))
 
+    # print('Method: ', request.method)
+    # print(form.validate_on_submit())
+    
+    print(form.username.data, form.password.data, form.remember_me.data)
+
+    print(FlaskForm.validate(self))
+
+    '''
     if form.validate_on_submit():
-        print(form.username.data)
-        print(form.password.data)
+        print('true?')
+    else: 
+        print('false?')
+    '''
 
     return render_template('login.html', form=form)
