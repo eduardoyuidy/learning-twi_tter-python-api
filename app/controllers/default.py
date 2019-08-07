@@ -1,4 +1,4 @@
-from flask_wtf import FlaskForm
+# from flask_wtf import Form
 from flask import render_template, request
 from app import app
 
@@ -11,6 +11,8 @@ def index():
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
+
+    # form = LoginForm()
     form = LoginForm()
     print('I am here')
 
@@ -21,7 +23,16 @@ def login():
     
     print(form.username.data, form.password.data, form.remember_me.data)
 
-    print(FlaskForm.validate(self))
+    # print(FlaskForm.validate(self))
+
+    if form.is_submitted():
+        print('form.validate(): ', form.validate())
+    print('form.is_submitted(): ', form.is_submitted())
+    #print('form.validate_on_submit(): ', form.validate_on_submit())
+    print(form.errors)
+
+    print('form')
+    print(form)
 
     '''
     if form.validate_on_submit():
